@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>用户登录注册</title>
+	<link href="plugins/validationEngine.jquery.css" type="text/css" rel="stylesheet">
+	<link href="plugins/bootstrap.min.css" type="text/css" rel="stylesheet">
+	<link href="css/signPage.css" type="text/css" rel="stylesheet">
+	<style type="text/css">
+		/*设定弹出提示样式*/
+		.formErrorContent{
+			color: red;
+			white-space: nowrap;
+			font-size: 10px;
+		}
+		/*验证码样式*/
+		#r_idcode {
+			width: 60%;
+		}
+		#get_idcode {
+			background-color: orange;
+			width: 40%;
+			height: 49px;
+			white-space: nowrap;
+			border-radius: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="htmleaf-container">
+		<div id="wrapper" class="login-page">
+		  <div id="login_form" class="form">
+		    <form class="register-form" id="reg_form">
+		      <input type="text" placeholder="手机号" id="r_phone_num" class="validate[custom[phone]]"/>
+		      <input type="password" placeholder="密码" id="r_password" class="validate[custom[onlyLetterNumber]]"/>
+		      <div><input type="text" placeholder="验证码" id="r_idcode" class="validate[required]"/><button id="get_idcode">获取验证码</button></div>
+		      <button id="create">创建账户</button>
+		      <p class="message">已经有了一个账户? <a href="#">立刻登录</a></p>
+		    </form>
+		    <form class="login-form" id="log_form">
+		      <input type="text" placeholder="手机号" id="phone_num" class="validate[required,custom[phone]]"/>
+		      <input type="password" placeholder="密码" id="l_password" class="validate[custom[onlyLetterNumber]]"/>
+		      <button id="login">登　录</button>
+		      <p class="message">还没有账户? <a href="#">立刻创建</a></p>
+		    </form>
+		  </div>
+		</div>
+	</div>
+	
+	<script src="plugins/jquery-3.1.1.min.js"></script>
+	<script src="plugins/jquery.validationEngine-zh_CN.js"></script>
+	<script src="plugins/jquery.validationEngine.min.js"></script>
+	<script src="js/signPage.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+//		表单验证
+		$("#reg_form").validationEngine('attach',{
+			promptPosition:'centerRight'
+		});
+		$("#log_form").validationEngine('attach',{
+			promptPosition:'centerRight'
+		});
+
+		//验证码（预留）
+//		$("get_icode").click(function(){
+//			$.ajax({
+//				type:,
+//				url:,
+//				dataType:,
+//				success:function(){
+//
+//				}
+//			})
+//		});
+	})
+	</script>
+</body>
+</html>
